@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bảo | Official Bio</title>
+    <title>Bảo | Share Mod Hack Game & iOS</title>
     <style>
         * {
             margin: 0;
@@ -22,7 +22,7 @@
             overflow-x: hidden;
             position: relative;
         }
-        /* Hiệu ứng nền không gian / lưới ảo */
+        /* Hiệu ứng nền không gian sao bay */
         canvas {
             position: fixed;
             top: 0;
@@ -36,12 +36,12 @@
             width: 100%;
             max-width: 440px;
             text-align: center;
-            background: rgba(15, 23, 42, 0.65);
+            background: rgba(15, 23, 42, 0.7);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(56, 189, 248, 0.25);
             border-radius: 28px;
-            padding: 35px 25px;
+            padding: 30px 20px;
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(56, 189, 248, 0.15);
             z-index: 2;
             position: relative;
@@ -53,9 +53,9 @@
         }
         .avatar-wrapper {
             position: relative;
-            width: 110px;
-            height: 110px;
-            margin: 0 auto 18px;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 15px;
         }
         .avatar-wrapper::before {
             content: '';
@@ -78,8 +78,8 @@
             border: 3px solid #0f172a;
         }
         h1 {
-            font-size: 24px;
-            margin-bottom: 6px;
+            font-size: 22px;
+            margin-bottom: 4px;
             font-weight: 800;
             background: linear-gradient(to right, #38bdf8, #c084fc);
             -webkit-background-clip: text;
@@ -89,65 +89,90 @@
             display: inline-block;
             background: rgba(56, 189, 248, 0.1);
             color: #38bdf8;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 600;
             padding: 4px 12px;
             border-radius: 20px;
             border: 1px solid rgba(56, 189, 248, 0.3);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
         p.bio {
-            font-size: 14px;
+            font-size: 13px;
             color: #94a3b8;
-            margin-bottom: 28px;
-            line-height: 1.6;
+            margin-bottom: 22px;
+            line-height: 1.5;
+        }
+        .section-title {
+            text-align: left;
+            font-size: 13px;
+            font-weight: 700;
+            color: #38bdf8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            padding-left: 5px;
         }
         .links {
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 12px;
+            margin-bottom: 20px;
         }
         .link-btn {
-            background: rgba(30, 41, 59, 0.7);
+            background: rgba(30, 41, 59, 0.8);
             color: #f8fafc;
             text-decoration: none;
-            padding: 15px 22px;
+            padding: 12px 16px;
             border-radius: 16px;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 600;
             border: 1px solid rgba(255, 255, 255, 0.08);
             display: flex;
             align-items: center;
             justify-content: space-between;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
         }
-        .link-btn span {
+        .link-left {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            text-align: left;
+        }
+        .link-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .link-info .title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #f8fafc;
+        }
+        .link-info .desc {
+            font-size: 11px;
+            color: #94a3b8;
         }
         .link-btn::after {
-            content: '→';
+            content: '↗';
             font-size: 16px;
-            transition: transform 0.3s ease;
             color: #38bdf8;
+            transition: transform 0.3s ease;
         }
         .link-btn:hover {
             background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(192, 132, 252, 0.2));
             border-color: #38bdf8;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(56, 189, 248, 0.2);
         }
         .link-btn:hover::after {
-            transform: translateX(5px);
+            transform: translate(2px, -2px);
         }
         .footer {
-            margin-top: 30px;
-            font-size: 12px;
+            margin-top: 15px;
+            font-size: 11px;
             color: #64748b;
-            letter-spacing: 0.5px;
         }
     </style>
 </head>
@@ -156,29 +181,52 @@
     <canvas id="matrix-canvas"></canvas>
 
     <div class="container">
-        <!-- Avatar có viền cầu vồng xoay -->
         <div class="avatar-wrapper">
             <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Avatar" class="avatar">
         </div>
         
         <h1>Bảo</h1>
         <div class="badge">✦ Share Mod Hack Game & iOS ✦</div>
-        <p class="bio">Chuyên chia sẻ mod hack game, thủ thuật iOS và các tool hay ho. Nhấn vào các kênh bên dưới để kết nối với mình nhé!</p>
+        <p class="bio">Chuyên chia sẻ mod hack game, thủ thuật iOS và tool độc quyền.</p>
 
         <div class="links">
             <a href="https://www.tiktok.com/@qbaosharemodhacgame" class="link-btn" target="_blank">
-                <span>TikTok Official</span>
+                <div class="link-left">
+                    <img src="https://sf16-scm.tiktokcdn.com/obj/eden-cn/ptlz_lvZ/ljhwZthlaukjlkulzlp/tiktok-icon2.png" alt="TikTok" class="link-icon" style="background:#000; padding: 6px;">
+                    <div class="link-info">
+                        <div class="title">TikTok Chính Chủ</div>
+                        <div class="desc">@qbaosharemodhacgame</div>
+                    </div>
+                </div>
             </a>
-            <a href="https://facebook.com" class="link-btn" target="_blank">
-                <span>Facebook Cá Nhân</span>
+        </div>
+
+        <div class="section-title">Tải IPA & Tool Hot</div>
+        
+        <div class="links">
+            <a href="https://link4sub.com/YbXDtn1fYg" class="link-btn" target="_blank">
+                <div class="link-left">
+                    <img src="https://i.ibb.co/1Z65w3G/fox.png" alt="App 3105" class="link-icon" onerror="this.src='https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'">
+                    <div class="link-info">
+                        <div class="title">App 3105 (iOS)</div>
+                        <div class="desc">Quản lý dữ liệu, patch & dọn rác</div>
+                    </div>
+                </div>
             </a>
-            <a href="https://github.com" class="link-btn" target="_blank">
-                <span>GitHub Repository</span>
+
+            <a href="https://link4sub.com/Yf47XaASAc" class="link-btn" target="_blank">
+                <div class="link-left">
+                    <img src="https://i.ibb.co/Vvz8P8f/120hz.png" alt="120Hz" class="link-icon" onerror="this.src='https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'">
+                    <div class="link-info">
+                        <div class="title">Unlock 120Hz iOS</div>
+                        <div class="desc">Giúp màn hình siêu mượt mà</div>
+                    </div>
+                </div>
             </a>
         </div>
 
         <div class="footer">
-            &copy; 2026 Bảo • Built with Gemini
+            &copy; 2026 Bảo • All rights reserved
         </div>
     </div>
 
